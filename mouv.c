@@ -12,49 +12,49 @@
 
 #include "push_swap.h"
 
-void    pb(t_stack *a, t_stack *b)
+void    pb(t_info *a, t_info *b)
 {
     t_node *tmp;
 
-    if (a->size == 0)
+    if (a->size_a == 0)
         return;
-    tmp = a->top;
-    a->top = tmp->next;
-    a->size--;
+    tmp = a->stack_b;
+    a->stack_b = tmp->next;
+    a->size_a--;
 
-    tmp->next = b->top;
-    b->top = tmp;
-    b->size++;
+    tmp->next = b->stack_b;
+    b->stack_b = tmp;
+    b->size_b++;
 
     write(1, "pb\n", 3);
 }
 
-void    pa(t_stack *a, t_stack *b)
+void    pa(t_info *a, t_info *b)
 {
     t_node *tmp;
 
-    if (b->size == 0)
+    if (b->size_b == 0)
         return;
-    tmp = b->top;
-    b->top = tmp->next;
-    b->size--;
+    tmp = b->stack_b;
+    b->stack_b = tmp->next;
+    b->size_b--;
 
-    tmp->next = a->top;
-    a->top = tmp;
-    a->size++;
+    tmp->next = a->stack_a;
+    a->stack_a = tmp;
+    a->size_a++;
 
     write(1, "pa\n", 3);
 }
 
-void ra(t_stack *a)
+void ra(t_info *a)
 {
     t_node *f, *l;
 
-	f = a->top;
-    if (a->size < 2) 
+	f = a->stack_a;
+    if (a->size_a < 2) 
 		return;
-    a->top = f->next;
-    l = a->top;
+    a->stack_a = f->next;
+    l = a->stack_a;
     while (l->next) 
 		l = l->next;
     l->next = f;
@@ -62,13 +62,13 @@ void ra(t_stack *a)
     write(1, "ra\n", 3);
 }
 
-void rra(t_stack *a)
+void rra(t_info *a)
 {
     t_node *prev, *l;
 
-	prev = a->top;
-	l = a->top;
-    if (a->size < 2) 
+	prev = a->stack_a;
+	l = a->stack_a;
+    if (a->size_a < 2) 
 		return;
     while (l->next)
 	{
@@ -76,7 +76,7 @@ void rra(t_stack *a)
 		l = l->next;
 	}
     prev->next = NULL;
-    l->next = a->top;
-    a->top = l;
+    l->next = a->stack_a;
+    a->stack_a = l;
     write(1, "rra\n", 4);
 }

@@ -12,25 +12,25 @@
 
 #include "push_swap.h"
 
-void medium_sort(t_stack *a, t_stack *b)
+void medium_sort(t_info *a, t_info *b)
 {
     int size;
     int chunk;
     int limit;
     int i;
 
-    size = a->size;
+    size = a->size_a;
     chunk = sqrt(size);
     limit = chunk;
     i = 0;
-    while (a->size)
+    while (a->size_a)
     {
-        if (a->top->index <= i)
+        if (a->stack_a->index <= i)
         {
             pb(a, b);
             i++;
         }
-        else if (a->top->index <= limit)
+        else if (a->stack_a->index <= limit)
         {
             pb(a, b);
             i++;
@@ -39,6 +39,6 @@ void medium_sort(t_stack *a, t_stack *b)
         else
             ra(a);
     }
-    while (b->size)
+    while (b->size_b)
         pa(a, b);
 }

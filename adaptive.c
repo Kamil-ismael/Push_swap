@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void adaptive_sort(t_stack *a, t_stack *b)
+void adaptive_sort(t_info *a, t_info *b)
 {
     double d;
 

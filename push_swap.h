@@ -18,22 +18,28 @@
 
 typedef struct s_node
 {
-    int value;
-    int index;
-    struct s_node *next;
-} t_node;
+    int             value;
+    int             index;
+    struct s_node   *next;
+    struct s_node   *prev;
+}   t_node;
 
-typedef struct s_stack
+typedef struct s_info
 {
-    t_node *top;
-    int size;
-} t_stack;
+    t_node  *stack_a;
+    t_node  *stack_b;
+    int     size_a;
+    int     size_b;
+    int     op_total;
+    int     op_sa;
+    double  disorder;
+}   t_info;
 
-void    pb(t_stack *a, t_stack *b);
-void    pa(t_stack *a, t_stack *b);
-void    ra(t_stack *a);
-void    rra(t_stack *a);
-void    medium_sort(t_stack *a, t_stack *b);
-void    adaptive_sort(t_stack *a, t_stack *b);
+void    pb(t_info *a, t_info *b);
+void    pa(t_info *a, t_info *b);
+void    ra(t_info *a);
+void    rra(t_info *a);
+void    medium_sort(t_info *a, t_info *b);
+void    adaptive_sort(t_info *a, t_info *b);
 
 #endif
