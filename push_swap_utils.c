@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.h                                  :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkamil-h <tkamil-h@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:58:43 by tkamil-h          #+#    #+#             */
-/*   Updated: 2026/03/27 11:58:44 by tkamil-h         ###   ########.fr       */
+/*   Updated: 2026/03/31 12:05:04 by tkamil-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,36 +34,35 @@ t_node	*ft_lstlast_ps(t_node *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back_ps(t_stack *stack, t_node *new_node)
+void	ft_lstadd_back_ps(t_node **stack, t_node *new_node)
 {
 	t_node	*last;
 
 	if (!stack || !new_node)
 		return ;
-	if (!stack->top)
-		stack->top = new_node;
+	if (!*stack)
+		*stack = new_node;
 	else
 	{
-		last = ft_lstlast_ps(stack->top);
+		last = ft_lstlast_ps(*stack);
 		last->next = new_node;
+		new_node->prev = last;
 	}
-	stack->size++;
 }
 
-void	free_stack(t_stack *stack)
+void	free_stack(t_node **stack)
 {
 	t_node	*tmp;
 	t_node	*current;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
-	current = stack->top;
+	current = *stack;
 	while (current)
 	{
 		tmp = current->next;
 		free(current);
 		current = tmp;
 	}
-	stack->top = NULL;
-	stack->size = 0;
+	*stack = NULL;
 }
