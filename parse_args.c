@@ -6,42 +6,20 @@
 /*   By: tkamil-h <tkamil-h@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 14:36:05 by tkamil-h          #+#    #+#             */
-/*   Updated: 2026/04/01 12:26:34 by tkamil-h         ###   ########.fr       */
+/*   Updated: 2026/04/02 10:34:46 by tkamil-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node   *create_node(int value)
+static void	append_to_stack(t_info *info, int value)
 {
-    t_node  *node;
+	t_node	*new;
 
-    node = malloc(sizeof(t_node));
-    if (!node)
-        error_exit();
-    node->value = value;
-    node->index = 0;
-    node->next = NULL;
-    node->prev = NULL;
-    return (node);
-}
-
-static void     append_to_stack(t_info *info, int value)
-{
-    t_node  *new;
-    t_node  *last;
-
-    new = create_node(value);
-    if (!info->stack_a)
-    {
-        info->stack_a = new;
-        return ;
-    }
-    last = info->stack_a;
-    while (last->next)
-        last = last->next;
-    last->next = new;
-    new->prev = last;
+	new = ft_lstnew_ps(value);
+	if (!new)
+		error_exit();
+	ft_lstadd_back_ps(&info->stack_a, new);
 }
 
 void            parse_args(t_info *info, int argc, char **argv)

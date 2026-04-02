@@ -6,7 +6,7 @@
 /*   By: tkamil-h <tkamil-h@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:58:43 by tkamil-h          #+#    #+#             */
-/*   Updated: 2026/03/31 12:05:04 by tkamil-h         ###   ########.fr       */
+/*   Updated: 2026/04/02 10:35:35 by tkamil-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_lstadd_back_ps(t_node **stack, t_node *new_node)
 
 	if (!stack || !new_node)
 		return ;
+	new_node->prev = NULL;
 	if (!*stack)
 		*stack = new_node;
 	else

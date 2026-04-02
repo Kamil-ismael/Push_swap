@@ -1,35 +1,41 @@
-NAME        = push_swap
+NAME	= push_swap
+CC		= gcc
+CFLAGS	= -Wall -Wextra -Werror
 
-CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -I. -Ilibft
+SRCS	= main.c \
+		  parsing.c \
+		  push_swap_utils.c \
+		  check_number.c \
+		  duplicate.c \
+		  ft_atol.c \
+		  error.c \
+		  disorder.c \
+		  operation_swap.c \
+		  operation_push.c \
+		  operation_rotate.c \
+		  print_bench.c \
+		  stubs.c
 
-LIBFT_DIR   = libft
-LIBFT       = $(LIBFT_DIR)/libft.a
+OBJS	= $(SRCS:.c=.o)
 
-SRC         =
+LIBFT	= libft/libft.a
 
-OBJ         = $(SRC:.c=.o)
+all: $(NAME)
 
-all: $(LIBFT) $(NAME)
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR)
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	make -C libft
 
 clean:
-	@make -C $(LIBFT_DIR) clean
-	rm -f $(OBJ)
+	rm -f $(OBJS)
+	make -C libft clean
 
 fclean: clean
-	@make -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
+	make -C libft fclean
 
 re: fclean all
 
 .PHONY: all clean fclean re
-

@@ -6,7 +6,7 @@
 /*   By: tkamil-h <tkamil-h@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 11:38:51 by tkamil-h          #+#    #+#             */
-/*   Updated: 2026/04/01 12:57:22 by tkamil-h         ###   ########.fr       */
+/*   Updated: 2026/04/02 09:52:48 by tkamil-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int		is_valid_number(char *str);
 long	ft_atol(const char *str);
 int		has_duplicate(t_node *stack, int value);
 void	parse_args(t_info *info, int argc, char **argv);
-void	add_back(t_node **stack, int value);
 void	sa(t_info *info);
 void	sb(t_info *info);
 void	ss(t_info *info);
@@ -51,11 +50,5 @@ t_node	*ft_lstlast_ps(t_node *lst);
 void	ft_lstadd_back_ps(t_node **stack, t_node *new_node);
 void	free_stack(t_node **stack);
 int     ft_strcmp(const char *s1, const char *s2);
-double  compute_disorder(t_info *info);
-void    sort_simple(t_info *info);
-void    sort_medium(t_info *info);
-void    sort_complex(t_info *info);
-void    sort_adaptive(t_info *info);
-void    print_bench(t_info *info, int strategy);
 
 #endif
