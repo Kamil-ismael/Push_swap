@@ -3,17 +3,19 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= main.c \
-		  parsing.c \
+		  parse_args.c \
 		  push_swap_utils.c \
 		  check_number.c \
 		  duplicate.c \
 		  ft_atol.c \
 		  error.c \
 		  disorder.c \
-		  operation_swap.c \
+		  operations_swap.c \
 		  operation_push.c \
 		  operation_rotate.c \
-		  print_bench.c \
+		  sort_simple.c \
+		  sort_complex.c \
+		  bench.c \
 		  stubs.c
 
 OBJS	= $(SRCS:.c=.o)

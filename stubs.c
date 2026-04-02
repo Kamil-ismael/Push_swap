@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_number.c                                     :+:      :+:    :+:   */
+/*   stubs.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkamil-h <tkamil-h@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 13:28:14 by tkamil-h          #+#    #+#             */
-/*   Updated: 2026/04/02 14:06:53 by tkamil-h         ###   ########.fr       */
+/*   Created: 2026/04/02 14:14:10 by tkamil-h          #+#    #+#             */
+/*   Updated: 2026/04/02 14:14:16 by tkamil-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(char *str)
+void	sort_medium(t_info *info)
 {
-	int	i;
+	(void)info;
+}
 
-	if (!str || !str[0])
-		return (0);
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (!str[i])
-		return (0);
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
+void	sort_adaptive(t_info *info)
+{
+	(void)info;
 }

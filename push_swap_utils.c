@@ -6,7 +6,7 @@
 /*   By: tkamil-h <tkamil-h@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 11:58:43 by tkamil-h          #+#    #+#             */
-/*   Updated: 2026/04/02 10:35:35 by tkamil-h         ###   ########.fr       */
+/*   Updated: 2026/04/02 14:20:46 by tkamil-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,13 @@ void	free_stack(t_node **stack)
 		current = tmp;
 	}
 	*stack = NULL;
+}
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
