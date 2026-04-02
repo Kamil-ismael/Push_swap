@@ -1,5 +1,5 @@
 NAME	= push_swap
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= main.c \
@@ -14,6 +14,7 @@ SRCS	= main.c \
 		  operation_push.c \
 		  operation_rotate.c \
 		  sort_simple.c \
+		  sort_medium.c \
 		  sort_complex.c \
 		  bench.c \
 		  stubs.c

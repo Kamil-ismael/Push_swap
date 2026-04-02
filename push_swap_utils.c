@@ -15,7 +15,7 @@
 t_node	*ft_lstnew_ps(int value)
 {
 	t_node	*new;
-	
+
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);

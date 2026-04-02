@@ -12,12 +12,15 @@
 
 #include "push_swap.h"
 
-void	sort_medium(t_info *info)
-{
-	(void)info;
-}
-
 void	sort_adaptive(t_info *info)
 {
-	(void)info;
+	info->disorder = compute_disorder(info);
+	if (info->size_a <= 3)
+		sort_simple(info);
+	else if (info->size_a <= 10)
+		sort_simple(info);
+	else if (info->size_a <= 100)
+		sort_medium(info);
+	else
+		sort_complex(info);
 }
